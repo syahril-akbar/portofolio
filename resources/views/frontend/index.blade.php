@@ -139,7 +139,9 @@
             <!-- Experience -->
             <div>
                 <h3 class="text-3xl font-bold text-gray-900 outfit-font mb-10 flex items-center gap-3">
-                    <span class="w-10 h-10 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center">💼</span>
+                    <span class="w-10 h-10 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745V20a2 2 0 002 2h14a2 2 0 002-2v-6.745zM3.183 5.378A23.931 23.931 0 0112 7c3.183 0 6.22-.62 9-1.745V5a2 2 0 00-2-2H5a2 2 0 00-2 2v.378zM12 7v4" /></svg>
+                    </span>
                     Pengalaman
                 </h3>
                 @if($experiences->isEmpty())
@@ -183,7 +185,9 @@
             <!-- Education -->
             <div>
                 <h3 class="text-3xl font-bold text-gray-900 outfit-font mb-10 flex items-center gap-3">
-                    <span class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center">🎓</span>
+                    <span class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>
+                    </span>
                     Pendidikan
                 </h3>
                 @if($educations->isEmpty())
@@ -238,7 +242,12 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <span class="text-teal-600 font-bold uppercase tracking-wider text-sm mb-2 block">Etalase Portofolio</span>
-            <h2 class="text-4xl font-bold text-gray-900 outfit-font mb-4">Proyek & Karya</h2>
+            <h2 class="text-4xl font-bold text-gray-900 outfit-font mb-4 flex items-center justify-center gap-3">
+                <span class="w-10 h-10 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                </span>
+                Proyek & Karya
+            </h2>
             <p class="text-gray-500 max-w-2xl mx-auto text-lg">Beberapa proyek yang telah saya kerjakan dari awal hingga rilis.</p>
         </div>
 
@@ -311,7 +320,12 @@
             <div class="md:col-span-5 space-y-16">
                 <!-- Skills -->
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 outfit-font mb-6 border-b pb-2">Keahlian (Skills)</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 outfit-font mb-6 border-b pb-2 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-lg bg-teal-100 text-teal-600 flex items-center justify-center shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        </span>
+                        Keahlian (Skills)
+                    </h3>
                     @if($skills->isEmpty())
                         <p class="text-gray-500 italic text-sm">Belum ada data keahlian.</p>
                     @else
@@ -340,7 +354,12 @@
 
                 <!-- Languages -->
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 outfit-font mb-6 border-b pb-2">Bahasa</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 outfit-font mb-6 border-b pb-2 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </span>
+                        Bahasa
+                    </h3>
                     @if($languages->isEmpty())
                         <p class="text-gray-500 italic text-sm">Belum ada data bahasa.</p>
                     @else
@@ -370,7 +389,9 @@
                             @foreach($certifications as $cert)
                             <div class="flex p-4 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
                                 <div class="mr-4 flex-shrink-0 pt-1">
-                                    <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center text-lg shadow-sm border border-teal-100">🏆</div>
+                                    <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center shadow-sm border border-teal-100">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                                    </div>
                                 </div>
                                 <div class="flex-grow">
                                     <h4 class="text-base font-bold text-gray-900">{{ $cert->name }}</h4>
@@ -397,7 +418,9 @@
                             @foreach($trainings as $training)
                             <div class="flex p-4 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-blue-50/20">
                                 <div class="mr-4 flex-shrink-0 pt-1">
-                                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-lg shadow-sm border border-blue-100">📘</div>
+                                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center shadow-sm border border-blue-100">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                    </div>
                                 </div>
                                 <div class="flex-grow">
                                     <h4 class="text-base font-bold text-gray-900">{{ $training->name }}</h4>
@@ -427,7 +450,9 @@
                         @foreach($achievements as $ach)
                         <div class="flex p-4 border border-yellow-100 rounded-xl bg-gradient-to-r from-yellow-50/50 to-white hover:shadow-md transition-shadow">
                             <div class="mr-4 flex-shrink-0 pt-1">
-                                <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center text-xl shadow-sm border border-yellow-200">⭐</div>
+                                <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center shadow-sm border border-yellow-200">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                                </div>
                             </div>
                             <div class="flex-grow">
                                 <div class="flex justify-between items-start">
