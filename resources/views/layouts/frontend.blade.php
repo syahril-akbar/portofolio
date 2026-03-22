@@ -28,7 +28,7 @@
                     <a href="#experience" class="text-gray-600 hover:text-teal-600 font-medium text-sm transition-colors">Pengalaman</a>
                     <a href="#projects" class="text-gray-600 hover:text-teal-600 font-medium text-sm transition-colors">Proyek</a>
                     <a href="#skills" class="text-gray-600 hover:text-teal-600 font-medium text-sm transition-colors">Keahlian</a>
-                    <a href="#" class="px-4 py-2 rounded-full bg-teal-600 text-white text-sm font-medium hover:bg-teal-700 transition-colors shadow-sm cursor-not-allowed opacity-80" onclick="alert('Fitur Download CV ATS segera hadir!')">Download ATS CV</a>
+                    <a href="{{ route('resume.download') }}" class="px-4 py-2 rounded-full bg-teal-600 text-white text-sm font-medium hover:bg-teal-700 transition-colors shadow-sm">Download ATS CV</a>
                 </div>
             </div>
         </div>
