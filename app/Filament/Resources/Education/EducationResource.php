@@ -20,7 +20,8 @@ class EducationResource extends Resource
     protected static ?string $modelLabel = 'Pendidikan';
     protected static ?string $pluralModelLabel = 'Riwayat Pendidikan';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Karir & Edukasi';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-academic-cap';
 
     public static function form(Schema $schema): Schema
     {

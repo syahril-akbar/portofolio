@@ -20,7 +20,8 @@ class AchievementResource extends Resource
     protected static ?string $modelLabel = 'Pencapaian';
     protected static ?string $pluralModelLabel = 'Penghargaan & Prestasi';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Pencapaian';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-trophy';
 
     public static function form(Schema $schema): Schema
     {

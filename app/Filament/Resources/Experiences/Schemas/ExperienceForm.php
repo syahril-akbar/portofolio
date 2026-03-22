@@ -13,63 +13,78 @@ class ExperienceForm
     {
         return $schema
             ->components([
-                TextInput::make('role')
-                    ->label('Pekerjaan')
-                    ->placeholder('Ketik pekerjaan')
-                    ->helperText('Isi pekerjaan sesuai pengalaman kerjamu. Data ini membantu menggambarkan peran dan lingkungan kerja yang pernah kamu jalani.')
-                    ->required(),
-                TextInput::make('company')
-                    ->label('Nama perusahaan')
-                    ->placeholder('Ketik perusahaan')
-                    ->helperText('Isi nama perusahaan sesuai pengalaman kerjamu. Data ini membantu menggambarkan peran dan lingkungan kerja yang pernah kamu jalani.')
-                    ->required(),
-                \Filament\Forms\Components\Select::make('employment_type')
-                    ->label('Tipe Pekerjaan')
-                    ->placeholder('Pilih tipe pekerjaan')
-                    ->options([
-                        'Penuh Waktu' => 'Penuh Waktu',
-                        'Paruh Waktu' => 'Paruh Waktu',
-                        'Wiraswasta' => 'Wiraswasta',
-                        'Freelance' => 'Freelance',
-                        'Kontrak' => 'Kontrak',
-                        'Magang' => 'Magang',
-                        'Musiman' => 'Musiman',
-                    ])
-                    ->helperText('Pilih tipe pekerjaan untuk memberikan gambaran bentuk dan sifat hubungan kerjamu.'),
-                \Filament\Forms\Components\Radio::make('location_type')
-                    ->label('Tipe Lokasi')
-                    ->options([
-                        'Dalam Negeri' => 'Dalam Negeri',
-                        'Luar Negeri' => 'Luar Negeri',
-                    ])
-                    ->inline(),
-                TextInput::make('location')
-                    ->label('Lokasi')
-                    ->placeholder('Pilih lokasi daerah')
-                    ->helperText('Tentukan lokasi kerja, baik dalam negeri maupun luar negeri, agar pengalamanmu tercatat dengan akurat.'),
-                DatePicker::make('start_date')
-                    ->label('Tanggal mulai')
-                    ->displayFormat('m/Y')
-                    ->helperText('Isi bulan dan tahun saat kamu mulai bekerja pada pekerjaan ini.')
-                    ->required(),
-                DatePicker::make('end_date')
-                    ->label('Tanggal berakhir')
-                    ->displayFormat('m/Y')
-                    ->helperText('Isi bulan dan tahun berakhirnya pekerjaan. Jika masih bekerja hingga sekarang, kamu bisa menandai sebagai pekerjaan saat ini.')
-                    ->disabled(fn ($get) => $get('is_current_job')),
-                \Filament\Forms\Components\Checkbox::make('is_current_job')
-                    ->label('Saat ini saya bekerja dalam pekerjaan ini')
-                    ->live(),
-                \Filament\Forms\Components\Textarea::make('description')
-                    ->label('Deskripsi (opsional)')
-                    ->placeholder('Masukkan Deskripsi')
-                    ->helperText('Gunakan bagian ini untuk menjelaskan tanggung jawab utama, pencapaian, atau hal penting lain dari pekerjaan tersebut.')
-                    ->columnSpanFull(),
-                \Filament\Forms\Components\FileUpload::make('proof_file')
-                    ->label('Bukti riwayat pekerjaan')
-                    ->directory('experiences_proofs')
-                    ->acceptedFileTypes(['application/pdf', 'image/*'])
-                    ->columnSpanFull(),
+                \Filament\Schemas\Components\Section::make('Informasi Pekerjaan')
+                    ->description('Detail posisi dan perusahaan tempat Anda bekerja.')
+                    ->components([
+                        TextInput::make('role')
+                            ->label('Pekerjaan')
+                            ->placeholder('Ketik pekerjaan')
+                            ->helperText('Isi pekerjaan sesuai pengalaman kerjamu.')
+                            ->required(),
+                        TextInput::make('company')
+                            ->label('Nama perusahaan')
+                            ->placeholder('Ketik perusahaan')
+                            ->helperText('Isi nama perusahaan tempat Anda bekerja.')
+                            ->required(),
+                        \Filament\Forms\Components\Select::make('employment_type')
+                            ->label('Tipe Pekerjaan')
+                            ->placeholder('Pilih tipe pekerjaan')
+                            ->options([
+                                'Penuh Waktu' => 'Penuh Waktu',
+                                'Paruh Waktu' => 'Paruh Waktu',
+                                'Wiraswasta' => 'Wiraswasta',
+                                'Freelance' => 'Freelance',
+                                'Kontrak' => 'Kontrak',
+                                'Magang' => 'Magang',
+                                'Musiman' => 'Musiman',
+                            ])
+                            ->helperText('Pilih status kepegawaian Anda.'),
+                    ]),
+                \Filament\Schemas\Components\Section::make('Lokasi & Waktu')
+                    ->description('Detail lokasi dan rentang waktu masa kerja Anda.')
+                    ->components([
+                        \Filament\Schemas\Components\Grid::make(2)
+                            ->components([
+                                \Filament\Forms\Components\Radio::make('location_type')
+                                    ->label('Tipe Lokasi')
+                                    ->options([
+                                        'Dalam Negeri' => 'Dalam Negeri',
+                                        'Luar Negeri' => 'Luar Negeri',
+                                    ])
+                                    ->inline(),
+                                TextInput::make('location')
+                                    ->label('Lokasi')
+                                    ->placeholder('Pilih lokasi daerah'),
+                            ]),
+                        \Filament\Schemas\Components\Grid::make(3)
+                            ->components([
+                                DatePicker::make('start_date')
+                                    ->label('Tanggal mulai')
+                                    ->displayFormat('m/Y')
+                                    ->required(),
+                                DatePicker::make('end_date')
+                                    ->label('Tanggal berakhir')
+                                    ->displayFormat('m/Y')
+                                    ->disabled(fn ($get) => $get('is_current_job')),
+                                \Filament\Forms\Components\Checkbox::make('is_current_job')
+                                    ->label('Masih Bekerja?')
+                                    ->live(),
+                            ]),
+                    ]),
+                \Filament\Schemas\Components\Section::make('Keterangan Tambahan')
+                    ->description('Penjelasan rinci dan bukti pendukung pengalaman kerja.')
+                    ->components([
+                        \Filament\Forms\Components\Textarea::make('description')
+                            ->label('Deskripsi Pekerjaan (Opsional)')
+                            ->placeholder('Jelaskan tanggung jawab utama dan pencapaian Anda...')
+                            ->rows(4)
+                            ->columnSpanFull(),
+                        \Filament\Forms\Components\FileUpload::make('proof_file')
+                            ->label('Bukti riwayat pekerjaan (PDF/Gambar)')
+                            ->directory('experiences_proofs')
+                            ->acceptedFileTypes(['application/pdf', 'image/*'])
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 }

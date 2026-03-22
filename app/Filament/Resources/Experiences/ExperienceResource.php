@@ -20,7 +20,8 @@ class ExperienceResource extends Resource
     protected static ?string $modelLabel = 'Pengalaman';
     protected static ?string $pluralModelLabel = 'Pengalaman Kerja';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Karir & Edukasi';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-briefcase';
 
     public static function form(Schema $schema): Schema
     {

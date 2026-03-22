@@ -20,7 +20,8 @@ class ProfileResource extends Resource
     protected static ?string $modelLabel = 'Profil';
     protected static ?string $pluralModelLabel = 'Profil Saya';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Profil Utama';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user';
 
     public static function form(Schema $schema): Schema
     {

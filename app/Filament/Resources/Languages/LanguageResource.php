@@ -20,7 +20,8 @@ class LanguageResource extends Resource
     protected static ?string $modelLabel = 'Bahasa';
     protected static ?string $pluralModelLabel = 'Penguasaan Bahasa';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Pencapaian';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-language';
 
     public static function form(Schema $schema): Schema
     {

@@ -20,7 +20,8 @@ class ProjectResource extends Resource
     protected static ?string $modelLabel = 'Karya/Proyek';
     protected static ?string $pluralModelLabel = 'Katalog Proyek';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Karya & Skill';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-folder';
 
     public static function form(Schema $schema): Schema
     {

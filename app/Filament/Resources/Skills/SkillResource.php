@@ -20,7 +20,8 @@ class SkillResource extends Resource
     protected static ?string $modelLabel = 'Keahlian';
     protected static ?string $pluralModelLabel = 'Daftar Keahlian';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Karya & Skill';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-code-bracket';
 
     public static function form(Schema $schema): Schema
     {

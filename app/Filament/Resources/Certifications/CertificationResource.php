@@ -20,7 +20,8 @@ class CertificationResource extends Resource
     protected static ?string $modelLabel = 'Sertifikasi';
     protected static ?string $pluralModelLabel = 'Sertifikat & Lisensi';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|\UnitEnum|null $navigationGroup = 'Pencapaian';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-check-badge';
 
     public static function form(Schema $schema): Schema
     {

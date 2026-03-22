@@ -14,55 +14,65 @@ class ProjectForm
     {
         return $schema
             ->components([
-                TextInput::make('title')
-                    ->label('Nama Proyek')
-                    ->placeholder('Contoh: Aplikasi E-Commerce Berbasis Web')
-                    ->helperText('Tuliskan judul atau nama proyek yang kamu kerjakan.')
-                    ->required(),
-                TextInput::make('slug')
-                    ->label('URL Slug')
-                    ->placeholder('contoh-aplikasi-e-commerce')
-                    ->required(),
-                TextInput::make('role')
-                    ->label('Peran (Role)')
-                    ->placeholder('Contoh: Full-stack Developer, UI/UX Designer')
-                    ->helperText('Jelaskan peran spesifik kamu dalam pengerjaan proyek ini.'),
-                \Filament\Forms\Components\DatePicker::make('start_date')
-                    ->label('Tanggal Mulai')
-                    ->displayFormat('m/Y')
-                    ->helperText('Kapan proyek ini mulai dikerjakan.'),
-                \Filament\Forms\Components\DatePicker::make('end_date')
-                    ->label('Tanggal Selesai')
-                    ->displayFormat('m/Y')
-                    ->helperText('Kapan proyek ini selesai. Kosongkan jika masih berjalan.'),
-                \Filament\Forms\Components\RichEditor::make('description')
-                    ->label('Deskripsi Proyek')
-                    ->placeholder('Ceritakan detail proyek...')
-                    ->helperText('Jelaskan secara ringkas tentang proyek, tantangan yang dihadapi, dan solusi yang kamu buat.')
-                    ->required()
-                    ->columnSpanFull(),
-                \Filament\Forms\Components\TagsInput::make('tech_stack')
-                    ->label('Teknologi (Tech Stack)')
-                    ->placeholder('Tekan enter untuk menambah (cth: Laravel, React)')
-                    ->helperText('Daftar bahasa pemrograman, framework, atau tools yang digunakan dalam proyek.')
-                    ->columnSpanFull(),
-                FileUpload::make('image')
-                    ->label('Gambar/Thumbnail Proyek')
-                    ->image()
-                    ->directory('projects_images')
-                    ->helperText('Unggah screenshot atau thumbnail proyek (Format: jpg, png).'),
-                TextInput::make('github_link')
-                    ->label('Tautan Repositori (Kode/GitHub)')
-                    ->placeholder('https://github.com/username/repo')
-                    ->url(),
-                TextInput::make('demo_link')
-                    ->label('Tautan Demo Website/Aplikasi')
-                    ->placeholder('https://demo-aplikasi.com')
-                    ->url(),
-                Toggle::make('is_published')
-                    ->label('Publikasikan Proyek Ini?')
-                    ->helperText('Jika diaktifkan, proyek ini akan tampil di portofolio publikmu.')
-                    ->required(),
+                \Filament\Schemas\Components\Section::make('Informasi Dasar')
+                    ->description('Isi data utama proyek yang akan ditampilkan.')
+                    ->components([
+                        TextInput::make('title')
+                            ->label('Nama Proyek')
+                            ->placeholder('Contoh: Aplikasi E-Commerce Berbasis Web')
+                            ->helperText('Tuliskan judul atau nama proyek yang kamu kerjakan.')
+                            ->required(),
+                        TextInput::make('slug')
+                            ->label('URL Slug')
+                            ->placeholder('contoh-aplikasi-e-commerce')
+                            ->required(),
+                        TextInput::make('role')
+                            ->label('Peran (Role)')
+                            ->placeholder('Contoh: Full-stack Developer, UI/UX Designer')
+                            ->helperText('Jelaskan peran spesifik kamu dalam pengerjaan proyek ini.'),
+                        Toggle::make('is_published')
+                            ->label('Publikasikan Proyek Ini?')
+                            ->helperText('Jika diaktifkan, proyek ini akan tampil di portofolio publikmu.')
+                            ->required(),
+                        \Filament\Forms\Components\RichEditor::make('description')
+                            ->label('Deskripsi Proyek')
+                            ->placeholder('Ceritakan detail proyek...')
+                            ->helperText('Jelaskan secara ringkas tentang proyek, tantangan yang dihadapi, dan solusi yang kamu buat.')
+                            ->required()
+                            ->columnSpanFull(),
+                    ]),
+                \Filament\Schemas\Components\Section::make('Detail Proyek & Media')
+                    ->description('Tambahkan teknologi yang digunakan dan bukti karya Anda.')
+                    ->components([
+                        \Filament\Forms\Components\TagsInput::make('tech_stack')
+                            ->label('Teknologi (Tech Stack)')
+                            ->placeholder('Tekan enter untuk menambah (cth: Laravel, React)')
+                            ->helperText('Daftar bahasa pemrograman, framework, atau tools yang digunakan.')
+                            ->columnSpanFull(),
+                        \Filament\Schemas\Components\Grid::make(2)
+                            ->components([
+                                TextInput::make('github_link')
+                                    ->label('Tautan GitHub')
+                                    ->placeholder('https://github.com/username/repo')
+                                    ->url(),
+                                TextInput::make('demo_link')
+                                    ->label('Tautan Demo')
+                                    ->placeholder('https://demo-aplikasi.com')
+                                    ->url(),
+                            ]),
+                        \Filament\Forms\Components\DatePicker::make('start_date')
+                            ->label('Tanggal Mulai')
+                            ->displayFormat('m/Y'),
+                        \Filament\Forms\Components\DatePicker::make('end_date')
+                            ->label('Tanggal Selesai')
+                            ->displayFormat('m/Y'),
+                        FileUpload::make('image')
+                            ->label('Gambar/Thumbnail Proyek')
+                            ->image()
+                            ->directory('projects_images')
+                            ->helperText('Unggah screenshot atau thumbnail proyek.')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 }
