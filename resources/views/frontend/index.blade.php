@@ -26,7 +26,7 @@
                 <div>
                     <span class="inline-block py-1 px-3 rounded-full bg-teal-100 text-teal-700 text-sm font-semibold mb-4 tracking-wide uppercase">PORTFOLIO</span>
                     <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 outfit-font leading-tight">
-                        Halo, saya <span class="text-teal-600">{{ explode(' ', trim($profile->name))[0] }}</span>.
+                        Halo, saya <span id="typing-name" class="text-teal-600 border-r-4 border-teal-600 pr-1 animate-pulse"></span>
                     </h1>
                     <h2 class="text-2xl md:text-3xl font-medium text-gray-600 mt-4 outfit-font">
                         {{ $profile->headline }}
@@ -73,6 +73,28 @@
                     </a>
                     @endif
                 </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const name = "{{ $profile->name }}";
+                    const typingElement = document.getElementById('typing-name');
+                    let i = 0;
+
+                    function type() {
+                        if (i < name.length) {
+                            typingElement.innerHTML += name.charAt(i);
+                            i++;
+                            setTimeout(type, 100);
+                        } else {
+                            typingElement.classList.remove('border-r-4');
+                            typingElement.classList.remove('animate-pulse');
+                        }
+                    }
+
+                    setTimeout(type, 500);
+                });
+            </script>
             </div>
             
             <div class="md:w-2/5 flex justify-center">
