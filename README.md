@@ -1,6 +1,6 @@
 # Portofolio IT — Syahril Akbar
 
-Portofolio pribadi berbasis **Laravel 11 + Filament 5** dengan panel admin lengkap untuk mengelola CV, proyek, sertifikasi, pengalaman, pendidikan, skill, training, bahasa, dan penghargaan. Termasuk backend untuk **CV download (PDF)** via dompdf.
+Portofolio pribadi berbasis **Laravel 13 + Filament 5** dengan panel admin lengkap untuk mengelola CV, proyek, sertifikasi, pengalaman, pendidikan, skill, training, bahasa, dan penghargaan. Termasuk backend untuk **CV download (PDF)** via dompdf.
 
 ---
 
@@ -21,7 +21,7 @@ Portofolio pribadi berbasis **Laravel 11 + Filament 5** dengan panel admin lengk
 
 | Layer | Stack |
 |---|---|
-| Backend | PHP 8.4, Laravel 11.55, Filament 5.x |
+| Backend | PHP 8.4, Laravel 13.24, Filament 5.x |
 | Database | SQLite (`database/database.sqlite`) / MySQL |
 | Frontend | Blade + Tailwind CSS v4 (compiled via Vite) |
 | PDF | barryvdh/laravel-dompdf |
