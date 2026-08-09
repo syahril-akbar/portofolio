@@ -166,8 +166,8 @@
                                     <span class="text-gray-400 mx-1">•</span> <span class="text-gray-500 font-normal">{{ $exp->location }} ({{ $exp->location_type ?? 'Lokal' }})</span>
                                     @endif
                                 </div>
-                                <div class="prose prose-sm text-gray-600 max-w-none mb-4">
-                                    {!! $exp->description !!}
+                                <div class="prose prose-sm text-gray-600 max-w-none mb-4 whitespace-pre-wrap">
+                                    {!! nl2br(e($exp->description)) !!}
                                 </div>
                                 @if($exp->proof_file)
                                 <a href="{{ Storage::url($exp->proof_file) }}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-medium text-teal-600 hover:text-teal-800 bg-teal-50 px-3 py-1.5 rounded-lg border border-teal-100">
@@ -214,8 +214,8 @@
                                 @if($edu->grade)
                                 <div class="text-sm text-gray-500 mb-3 font-medium">Nilai/IPK: <span class="text-gray-900">{{ $edu->grade }}</span></div>
                                 @endif
-                                <div class="prose prose-sm text-gray-600 max-w-none mb-4">
-                                    {!! $edu->description !!}
+                                <div class="prose prose-sm text-gray-600 max-w-none mb-4 whitespace-pre-wrap">
+                                    {!! $edu->description ? nl2br(e($edu->description)) : '' !!}
                                     @if($edu->activities)
                                         <p class="text-sm mt-2"><strong>Aktivitas & Kegiatan:</strong> <br> {!! nl2br(e($edu->activities)) !!}</p>
                                     @endif
@@ -550,18 +550,20 @@ function openProjectModal(slug) {
         </div>` : '';
 
     content.innerHTML = `
-        ${p.image ? `<div class="mb-6 rounded-xl overflow-hidden bg-gray-100">
-            <img src="/storage/${esc(p.image)}" alt="${esc(p.title)}" class="w-full h-auto max-h-96 object-cover">
-        </div>` : ''}
-        ${dateRange}
-        ${roleHtml}
-        ${techHtml}
-        <div class="mb-6">
-            <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Deskripsi</h3>
-            <div class="prose prose-sm text-gray-600 max-w-none">${p.description || '<em class="text-gray-400">Tidak ada deskripsi.</em>'}</div>
-        </div>
-        ${linksHtml}
-    `;
+            ${p.image ? `<div class="mb-6 rounded-xl overflow-hidden bg-gray-100">
+                <img src="/storage/${esc(p.image)}" alt="${esc(p.title)}" class="w-full h-auto max-h-96 object-cover">
+            </div>` : ''}
+            ${dateRange}
+            ${roleHtml}
+            ${techHtml}
+            <div class="mb-6">
+                <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Deskripsi</h3>
+                <div class="prose prose-sm text-gray-600 max-w-none">
+                    ${p.description ? p.description.replace(/\n/g, '<br>') : '<em class="text-gray-400">Tidak ada deskripsi.</em>'}
+                </div>
+            </div>
+            ${linksHtml}
+        `;
 
     modal.classList.remove('hidden');
     modal.classList.add('flex');
