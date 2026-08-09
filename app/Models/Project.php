@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    //
+    protected $casts = [
+        'tech_stack' => 'array',
+        'is_published' => 'boolean',
+    ];
 }
