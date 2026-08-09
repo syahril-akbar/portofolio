@@ -26,8 +26,8 @@ class PortfolioController extends Controller
         // Group skills by category
         $skills = Skill::orderBy('proficiency', 'desc')->get()->groupBy('category');
         
-        $certifications = Certification::orderBy('issued_at', 'desc')->get();
-        $trainings = Training::orderBy('start_date', 'desc')->get();
+        $certifications = Certification::orderBy('issued_at', 'asc')->get();
+        $trainings = Training::orderBy('start_date', 'asc')->get();
         $achievements = Achievement::orderBy('date', 'desc')->get();
         $languages = Language::orderBy('proficiency', 'desc')->get();
 
