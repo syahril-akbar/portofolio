@@ -549,10 +549,20 @@ function openProjectModal(slug) {
             </a>` : ''}
         </div>` : '';
 
+    const noImageHtml = p.demo_link || p.github_link ? `
+        <div class="mb-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center py-12 px-6 text-center">
+            <svg class="w-14 h-14 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-gray-500 font-medium mb-4">Belum ada gambar preview untuk proyek ini.</p>
+            ${p.demo_link ? `<a href="${esc(p.demo_link)}" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                Lihat Preview
+            </a>` : ''}
+        </div>` : '';
+
     content.innerHTML = `
             ${p.image ? `<div class="mb-6 rounded-xl overflow-hidden bg-gray-100">
                 <img src="/storage/${esc(p.image)}" alt="${esc(p.title)}" class="w-full h-auto max-h-96 object-cover">
-            </div>` : ''}
+            </div>` : noImageHtml}
             ${dateRange}
             ${roleHtml}
             ${techHtml}
