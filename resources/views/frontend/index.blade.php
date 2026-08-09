@@ -429,7 +429,7 @@
                                         <span class="bg-gray-100 px-1.5 py-0.5 rounded">{{ $training->vocational_field }}{{ $training->sub_vocational_field ? ' - '. $training->sub_vocational_field : '' }}</span>
                                         <span class="py-0.5">{{ \Carbon\Carbon::parse($training->start_date)->translatedFormat('d M Y') }} - {{ $training->end_date ? \Carbon\Carbon::parse($training->end_date)->translatedFormat('d M Y') : 'Berjalan' }}</span>
                                     </div>
-                                    <p class="text-sm text-gray-600 mb-2 line-clamp-2">{!! strip_tags($training->description) !!}</p>
+                                    <p class="text-sm text-gray-600 mb-2">{!! strip_tags($training->description) !!}</p>
                                     @if($training->certificate_file)
                                     <a href="{{ Storage::url($training->certificate_file) }}" target="_blank" class="text-blue-600 hover:text-blue-800 text-xs font-medium inline-flex items-center gap-1">
                                         Sertifikat Pelatihan <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
