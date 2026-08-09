@@ -19,9 +19,9 @@ class PortfolioController extends Controller
     public function index()
     {
         $profile = Profile::first();
-        $projects = Project::where('is_published', true)->orderBy('created_at', 'desc')->get();
-        $experiences = Experience::orderBy('start_date', 'desc')->get();
-        $educations = Education::orderBy('start_date', 'desc')->get();
+        $projects = Project::where('is_published', true)->orderBy('created_at', 'asc')->get();
+        $experiences = Experience::orderBy('start_date', 'asc')->get();
+        $educations = Education::orderBy('start_date', 'asc')->get();
         
         // Group skills by category
         $skills = Skill::orderBy('proficiency', 'desc')->get()->groupBy('category');
